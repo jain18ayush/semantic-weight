@@ -14,3 +14,6 @@ wheels/
 
 #data
 dataset_images/
+data/
+cache/
+.vscode/
