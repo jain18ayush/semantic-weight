@@ -93,7 +93,7 @@ def train_model(
               model=model,
               epoch=epoch,
               activations=test_activations,
-              phase='phase1'  # or 'phase2'
+              phase=f'phase{phase}'  # or 'phase2'
             )
 
         if (epoch + 1) % 10 == 0:
@@ -139,7 +139,7 @@ print("Starting experiment")
 train_split = 0.8
 batch_size = 32
 
-dataset = MonoToPolySemanticsDataset(num_samples=1000, phase=1)
+dataset = MonoToPolySemanticsDataset(num_samples=1000, phase=1, save_dir='data/mono_to_poly_semantics')
 
 # Split dataset into train and validation
 train_size = int(train_split * len(dataset))
@@ -166,6 +166,8 @@ train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=batch_size)
 
 fig = dataset.visualize_samples(5)
+
+# analyzer = WeightDynamicsAnalyzer()
 
 analyzer.current_phase = 2
 #keep training the same model 

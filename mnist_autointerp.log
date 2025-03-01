@@ -1,0 +1,1184 @@
+2025-02-26 22:21:41,515 - __main__ - INFO - Directory 'data' checked/created
+2025-02-26 22:21:41,515 - __main__ - INFO - Directory 'results' checked/created
+2025-02-26 22:21:41,515 - __main__ - INFO - Directory 'visualizations' checked/created
+2025-02-26 22:21:41,515 - __main__ - INFO - Directory 'cache' checked/created
+2025-02-26 22:21:41,515 - __main__ - INFO - Directory 'logs' checked/created
+2025-02-26 22:21:42,405 - __main__ - INFO - Loading Vision-Language model: llava-hf/llava-1.5-7b-hf
+2025-02-26 22:21:43,379 - __main__ - INFO - Using device: cpu
+2025-02-26 22:21:43,456 - __main__ - ERROR - Error loading Vision-Language model: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+2025-02-26 22:21:43,457 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 103, in setup_vllm
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+    ...<5 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 567, in from_pretrained
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+
+2025-02-26 22:21:43,457 - __main__ - INFO - Attempting to load fallback model: llava-hf/llava-v1.5-7b-hf
+2025-02-26 22:21:43,493 - __main__ - ERROR - Error loading fallback model: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-02-26 22:21:43,497 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 103, in setup_vllm
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+    ...<5 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 567, in from_pretrained
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfe857-2b53a024236524fc79ae9ea1;a0af5303-68d1-43f9-a7a9-3a92f52c63e0)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 125, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+2025-02-26 22:21:43,498 - __main__ - ERROR - Error in main function: Failed to load any Vision-Language model. Original error: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config., Fallback error: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-02-26 22:21:43,500 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 103, in setup_vllm
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+    ...<5 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 567, in from_pretrained
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfe857-2b53a024236524fc79ae9ea1;a0af5303-68d1-43f9-a7a9-3a92f52c63e0)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 125, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 1223, in main
+    vllm_model, processor, tokenizer = setup_vllm()
+                                       ~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 149, in setup_vllm
+    raise RuntimeError(f"Failed to load any Vision-Language model. Original error: {str(e)}, Fallback error: {str(e2)}")
+RuntimeError: Failed to load any Vision-Language model. Original error: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config., Fallback error: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+2025-02-26 22:27:44,042 - __main__ - INFO - Directory 'data' checked/created
+2025-02-26 22:27:44,043 - __main__ - INFO - Directory 'results' checked/created
+2025-02-26 22:27:44,043 - __main__ - INFO - Directory 'visualizations' checked/created
+2025-02-26 22:27:44,043 - __main__ - INFO - Directory 'cache' checked/created
+2025-02-26 22:27:44,043 - __main__ - INFO - Directory 'logs' checked/created
+2025-02-26 22:27:46,212 - __main__ - INFO - Loading Vision-Language model: llava-hf/llava-1.5-7b-hf
+2025-02-26 22:27:46,861 - __main__ - INFO - Using device: cpu
+2025-02-26 22:27:46,940 - __main__ - ERROR - Error loading Vision-Language model: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+2025-02-26 22:27:46,941 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 103, in setup_vllm
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+    ...<5 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 567, in from_pretrained
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+
+2025-02-26 22:27:46,941 - __main__ - INFO - Attempting to load fallback model: llava-hf/llava-v1.5-7b-hf
+2025-02-26 22:27:46,978 - __main__ - ERROR - Error loading fallback model: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-02-26 22:27:46,984 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 103, in setup_vllm
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+    ...<5 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 567, in from_pretrained
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfe9c2-120f2cb720288d37609204fa;ecf217d9-6bd4-4443-b04d-b46a6ef4b6d6)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 125, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+2025-02-26 22:27:46,984 - __main__ - ERROR - Error in main function: Failed to load any Vision-Language model. Original error: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config., Fallback error: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-02-26 22:27:46,986 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 103, in setup_vllm
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+    ...<5 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 567, in from_pretrained
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfe9c2-120f2cb720288d37609204fa;ecf217d9-6bd4-4443-b04d-b46a6ef4b6d6)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 125, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 1223, in main
+    vllm_model, processor, tokenizer = setup_vllm()
+                                       ~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 149, in setup_vllm
+    raise RuntimeError(f"Failed to load any Vision-Language model. Original error: {str(e)}, Fallback error: {str(e2)}")
+RuntimeError: Failed to load any Vision-Language model. Original error: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config., Fallback error: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+2025-02-26 22:28:08,958 - __main__ - INFO - Directory 'data' checked/created
+2025-02-26 22:28:08,958 - __main__ - INFO - Directory 'results' checked/created
+2025-02-26 22:28:08,958 - __main__ - INFO - Directory 'visualizations' checked/created
+2025-02-26 22:28:08,958 - __main__ - INFO - Directory 'cache' checked/created
+2025-02-26 22:28:08,958 - __main__ - INFO - Directory 'logs' checked/created
+2025-02-26 22:28:10,193 - __main__ - INFO - Loading Vision-Language model: llava-hf/llava-1.5-7b-hf
+2025-02-26 22:28:10,828 - __main__ - INFO - Using device: cpu
+2025-02-26 22:28:10,907 - __main__ - ERROR - Error loading Vision-Language model: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+2025-02-26 22:28:10,908 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 103, in setup_vllm
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+    ...<5 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 567, in from_pretrained
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+
+2025-02-26 22:28:10,908 - __main__ - INFO - Attempting to load fallback model: llava-hf/llava-v1.5-7b-hf
+2025-02-26 22:28:10,949 - __main__ - ERROR - Error loading fallback model: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-02-26 22:28:10,953 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 103, in setup_vllm
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+    ...<5 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 567, in from_pretrained
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfe9da-4c8f0f7d0ed10b806d7e08b2;5860e606-b641-4454-a03b-9e627962ad0d)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 125, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+2025-02-26 22:28:10,954 - __main__ - ERROR - Error in main function: Failed to load any Vision-Language model. Original error: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config., Fallback error: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-02-26 22:28:10,955 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 103, in setup_vllm
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+    ...<5 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 567, in from_pretrained
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfe9da-4c8f0f7d0ed10b806d7e08b2;5860e606-b641-4454-a03b-9e627962ad0d)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-v1.5-7b-hf/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 125, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 1223, in main
+    vllm_model, processor, tokenizer = setup_vllm()
+                                       ~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 149, in setup_vllm
+    raise RuntimeError(f"Failed to load any Vision-Language model. Original error: {str(e)}, Fallback error: {str(e2)}")
+RuntimeError: Failed to load any Vision-Language model. Original error: Unrecognized configuration class <class 'transformers.models.llava.configuration_llava.LlavaConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of AriaTextConfig, BambaConfig, BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, LlamaConfig, CodeGenConfig, CohereConfig, Cohere2Config, CpmAntConfig, CTRLConfig, Data2VecTextConfig, DbrxConfig, DiffLlamaConfig, ElectraConfig, Emu3Config, ErnieConfig, FalconConfig, FalconMambaConfig, FuyuConfig, GemmaConfig, Gemma2Config, GitConfig, GlmConfig, GotOcr2Config, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, GraniteConfig, GraniteMoeConfig, GraniteMoeSharedConfig, HeliumConfig, JambaConfig, JetMoeConfig, LlamaConfig, MambaConfig, Mamba2Config, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MistralConfig, MixtralConfig, MllamaConfig, MoshiConfig, MptConfig, MusicgenConfig, MusicgenMelodyConfig, MvpConfig, NemotronConfig, OlmoConfig, Olmo2Config, OlmoeConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PersimmonConfig, PhiConfig, Phi3Config, PhimoeConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, Qwen2Config, Qwen2MoeConfig, RecurrentGemmaConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, StableLmConfig, Starcoder2Config, TransfoXLConfig, TrOCRConfig, WhisperConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig, ZambaConfig, Zamba2Config., Fallback error: llava-hf/llava-v1.5-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+2025-02-26 22:30:32,993 - __main__ - INFO - Directory 'data' checked/created
+2025-02-26 22:30:32,993 - __main__ - INFO - Directory 'results' checked/created
+2025-02-26 22:30:32,993 - __main__ - INFO - Directory 'visualizations' checked/created
+2025-02-26 22:30:32,993 - __main__ - INFO - Directory 'cache' checked/created
+2025-02-26 22:30:32,993 - __main__ - INFO - Directory 'logs' checked/created
+2025-02-26 22:30:34,495 - __main__ - INFO - Loading Vision-Language model: llava-hf/llava-1.5-7b
+2025-02-26 22:30:34,591 - __main__ - ERROR - Error loading Vision-Language model: llava-hf/llava-1.5-7b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-02-26 22:30:34,597 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-1.5-7b/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfea6a-46e338a92bd0c5e911245c62;b629dbe9-23ed-4479-ab94-2ab31c6b1e37)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-1.5-7b/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 85, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-1.5-7b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+2025-02-26 22:30:34,597 - __main__ - INFO - Attempting to load fallback model: llava-hf/llava-1.5-13b
+2025-02-26 22:30:34,640 - __main__ - ERROR - Error loading fallback model: llava-hf/llava-1.5-13b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-02-26 22:30:34,643 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-1.5-7b/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfea6a-46e338a92bd0c5e911245c62;b629dbe9-23ed-4479-ab94-2ab31c6b1e37)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-1.5-7b/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 85, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-1.5-7b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-1.5-13b/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfea6a-17659810464d5ef56f39cf9d;f28efa53-5932-4290-b1a6-bec5c7cd3ca2)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-1.5-13b/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 125, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-1.5-13b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+2025-02-26 22:30:34,644 - __main__ - ERROR - Error in main function: Failed to load any Vision-Language model. Original error: llava-hf/llava-1.5-7b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`, Fallback error: llava-hf/llava-1.5-13b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+2025-02-26 22:30:34,646 - __main__ - ERROR - Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-1.5-7b/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfea6a-46e338a92bd0c5e911245c62;b629dbe9-23ed-4479-ab94-2ab31c6b1e37)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-1.5-7b/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 85, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-1.5-7b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/llava-hf/llava-1.5-13b/resolve/main/processor_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+        path_or_repo_id,
+    ...<10 lines>...
+        local_files_only=local_files_only,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 862, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<14 lines>...
+        force_download=force_download,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+    raise head_call_error
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+    r = _request_wrapper(
+        method="HEAD",
+    ...<5 lines>...
+        timeout=timeout,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 280, in _request_wrapper
+    response = _request_wrapper(
+        method=method,
+    ...<2 lines>...
+        **params,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 304, in _request_wrapper
+    hf_raise_for_status(response)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 458, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-67bfea6a-17659810464d5ef56f39cf9d;f28efa53-5932-4290-b1a6-bec5c7cd3ca2)
+
+Repository Not Found for url: https://huggingface.co/llava-hf/llava-1.5-13b/resolve/main/processor_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 125, in setup_vllm
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+    ...<2 lines>...
+        token='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'
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/models/auto/processing_auto.py", line 260, in from_pretrained
+    processor_config_file = get_file_from_repo(
+        pretrained_model_name_or_path, PROCESSOR_NAME, **get_file_from_repo_kwargs
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 496, in get_file_from_repo
+    return cached_file(
+        path_or_repo_id=path_or_repo,
+    ...<11 lines>...
+        _raise_exceptions_for_connection_errors=False,
+    )
+  File "/Users/ayushjain/Development/Interp/semantic-weight/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 365, in cached_file
+    raise EnvironmentError(
+    ...<4 lines>...
+    ) from e
+OSError: llava-hf/llava-1.5-13b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 1223, in main
+    vllm_model, processor, tokenizer = setup_vllm()
+                                       ~~~~~~~~~~^^
+  File "/Users/ayushjain/Development/Interp/semantic-weight/autointerp.py", line 149, in setup_vllm
+    raise RuntimeError(f"Failed to load any Vision-Language model. Original error: {str(e)}, Fallback error: {str(e2)}")
+RuntimeError: Failed to load any Vision-Language model. Original error: llava-hf/llava-1.5-7b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`, Fallback error: llava-hf/llava-1.5-13b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+

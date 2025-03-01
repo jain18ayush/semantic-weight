@@ -17,3 +17,5 @@ dataset_images/
 data/
 cache/
 .vscode/
+*mnist_autointerp.log
+*results/error.html

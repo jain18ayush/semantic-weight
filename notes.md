@@ -1,0 +1,5 @@
+Hypothesis Evaluation:
+top5_early_stabilization: Supported
+lower_late_evolution: Not Supported
+decreasing_minimal_representation: Not Supported
+hypothesis_supported: Not Supported

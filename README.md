@@ -143,10 +143,10 @@ The experiment will:
 
 2. After Phase 2:
    - Some neurons maintain orientation selectivity
-   - Some neurons become polysemantic (low CRS for both features)
-   - Increased weight entropy in polysemantic neurons
-   - Larger weight magnitudes in polysemantic neurons
-   - Decreased angular distances between neurons
+   - Some neurons become polysemantic (low CRS for both features) [increased slightly]
+   - Increased weight entropy in polysemantic neurons [decreased]
+   - Larger weight magnitudes in polysemantic neurons [x]
+   - Decreased angular distances between neurons [x]
 
 ## Contributing
 

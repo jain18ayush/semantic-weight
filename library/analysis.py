@@ -368,3 +368,352 @@ class WeightDynamicsAnalyzer:
         for phase in ['phase1', 'phase2']:
             df = pd.read_csv(Path(path) / f'{phase}_metrics.csv')
             self.metrics[phase] = df.to_dict('list')
+
+import numpy as np
+import torch
+from scipy.stats import entropy
+import pandas as pd
+from pathlib import Path
+import matplotlib.pyplot as plt
+import seaborn as sns
+from typing import Dict, List, Tuple, Optional
+
+class CurriculumWeightAnalyzer:
+    """
+    Analyzes neural network weight dynamics during curriculum learning.
+    Tracks changes across complexity levels instead of discrete phases.
+    """
+    
+    def __init__(self, save_dir: str = 'results'):
+        self.save_dir = Path(save_dir)
+        self.save_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Initialize storage for metrics
+        self.metrics = {
+            'complexity': [],
+            'epoch': [],
+            'weight_entropy': [],
+            'weight_magnitude': [],
+            'angular_distances': [],
+            'semanticity_scores': [],
+            'feature_importance': []
+        }
+        
+    def analyze_epoch(self, 
+                     model: torch.nn.Module,
+                     epoch: int,
+                     activations: torch.Tensor,
+                     complexity: float) -> Dict:
+        """
+        Analyze network weights and activations for current complexity level.
+        
+        Args:
+            model: Neural network model
+            epoch: Current epoch number
+            activations: Hidden layer activations
+            complexity: Current curriculum complexity (0.0 to 1.0)
+        """
+        # Get model weights
+        fc1_weights, _ = model.get_weights()
+        
+        # Compute metrics
+        entropy_scores = self._compute_weight_entropy(fc1_weights)
+        magnitudes = self._compute_weight_magnitude(fc1_weights)
+        angular_dists = self._compute_angular_distances(fc1_weights)
+        semanticity = self._compute_selectivity(activations)
+        feature_importance = self._compute_feature_importance(fc1_weights, complexity)
+        
+        # Store metrics
+        self.metrics['complexity'].append(complexity)
+        self.metrics['epoch'].append(epoch)
+        self.metrics['weight_entropy'].append(entropy_scores)
+        self.metrics['weight_magnitude'].append(magnitudes)
+        self.metrics['angular_distances'].append(angular_dists)
+        self.metrics['semanticity_scores'].append(semanticity)
+        self.metrics['feature_importance'].append(feature_importance)
+        
+        return {
+            'weight_entropy': entropy_scores,
+            'weight_magnitude': magnitudes,
+            'angular_distances': angular_dists,
+            'semanticity_scores': semanticity,
+            'feature_importance': feature_importance
+        }
+    
+    def _compute_weight_entropy(self, weights: np.ndarray) -> np.ndarray:
+        """Compute entropy of weight distributions for each neuron."""
+        weights_norm = np.abs(weights) / np.sum(np.abs(weights), axis=1, keepdims=True)
+        return np.array([entropy(w) for w in weights_norm])
+    
+    def _compute_weight_magnitude(self, weights: np.ndarray) -> np.ndarray:
+        """Calculate L2 norm of weight vectors for each neuron."""
+        return np.linalg.norm(weights, axis=1)
+    
+    def _compute_angular_distances(self, weights: np.ndarray) -> float:
+        """Compute mean angular distance between all pairs of weight vectors."""
+        weights_norm = weights / np.linalg.norm(weights, axis=1, keepdims=True)
+        cos_sims = np.dot(weights_norm, weights_norm.T)
+        angles = np.arccos(np.clip(cos_sims, -1.0, 1.0)) * 180.0 / np.pi
+        return np.mean(angles[np.triu_indices_from(angles, k=1)])
+    
+    def _compute_selectivity(self, activations: np.ndarray) -> List[float]:
+        """
+        Calculate selectivity for each neuron based on activation patterns.
+        Now considers continuous complexity levels.
+        """
+        neuron_selectivity = []
+        for neuron_idx in range(activations.shape[1]):
+            neuron_acts = activations[:, neuron_idx]
+            # Calculate entropy of activation distribution
+            act_hist, _ = np.histogram(neuron_acts, bins=20, density=True)
+            act_hist = act_hist / np.sum(act_hist)
+            selectivity = 1 - entropy(act_hist) / np.log2(len(act_hist))
+            neuron_selectivity.append(selectivity)
+        return neuron_selectivity
+
+    def _compute_feature_importance(self, weights: np.ndarray, complexity: float) -> Dict[str, float]:
+        """
+        Estimate importance of different features based on weight patterns.
+        Separates weights into regions corresponding to different features.
+        """
+        # Assuming input image is 32x32x3, weights shape is (n_neurons, 3072)
+        n_neurons = weights.shape[0]
+        
+        # Separate weights for different channels (RGB)
+        weights_r = weights[:, :1024].reshape(n_neurons, 32, 32)
+        weights_g = weights[:, 1024:2048].reshape(n_neurons, 32, 32)
+        weights_b = weights[:, 2048:].reshape(n_neurons, 32, 32)
+        
+        # Compute importance scores
+        color_importance = np.mean(np.abs(weights_r - weights_b))  # Red vs Blue
+        texture_importance = np.mean(np.abs(np.diff(weights_r, axis=1))) # Horizontal gradients
+        orientation_importance = np.mean(np.abs(weights_r + weights_g + weights_b))
+        
+        return {
+            'color': float(color_importance),
+            'texture': float(texture_importance),
+            'orientation': float(orientation_importance)
+        }
+    
+    def generate_visualizations(self):
+        """Generate visualizations of metric evolution with complexity."""
+        self._plot_metrics_vs_complexity()
+        self._plot_feature_importance()
+        self._plot_correlation_matrix()
+        self._plot_neuron_trajectories()
+    
+    def _plot_metrics_vs_complexity(self):
+        """Plot how different metrics evolve with complexity."""
+        metrics_to_plot = ['weight_entropy', 'weight_magnitude', 'angular_distances', 'semanticity_scores']
+        
+        fig, axes = plt.subplots(2, 2, figsize=(15, 12))
+        axes = axes.flatten()
+        
+        for idx, metric in enumerate(metrics_to_plot):
+            data = np.array(self.metrics[metric])
+            complexity = np.array(self.metrics['complexity'])
+            
+            if data.ndim > 1:  # If we have per-neuron metrics
+                mean_data = np.mean(data, axis=1)
+                std_data = np.std(data, axis=1)
+                axes[idx].fill_between(complexity, mean_data - std_data, 
+                                     mean_data + std_data, alpha=0.3)
+                axes[idx].plot(complexity, mean_data)
+            else:
+                axes[idx].plot(complexity, data)
+                
+            axes[idx].set_title(metric.replace('_', ' ').title())
+            axes[idx].set_xlabel('Complexity')
+            axes[idx].grid(True, alpha=0.3)
+            
+        plt.tight_layout()
+        plt.savefig(self.save_dir / 'metrics_vs_complexity.png')
+        plt.close()
+    
+    def _plot_feature_importance(self):
+        """Plot evolution of feature importance scores."""
+        complexities = self.metrics['complexity']
+        importance_data = pd.DataFrame(self.metrics['feature_importance'])
+        
+        plt.figure(figsize=(10, 6))
+        for feature in ['color', 'texture', 'orientation']:
+            plt.plot(complexities, importance_data[feature], label=feature)
+            
+        plt.xlabel('Complexity')
+        plt.ylabel('Feature Importance')
+        plt.title('Feature Importance Evolution')
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        plt.savefig(self.save_dir / 'feature_importance.png')
+        plt.close()
+    
+    def _plot_correlation_matrix(self):
+        """Plot correlation matrix between different metrics."""
+        metrics_to_correlate = ['weight_entropy', 'weight_magnitude', 
+                              'angular_distances', 'semanticity_scores']
+        
+        # Prepare data for correlation
+        data_dict = {}
+        for metric in metrics_to_correlate:
+            metric_data = np.array(self.metrics[metric])
+            if metric_data.ndim > 1:
+                data_dict[metric] = np.mean(metric_data, axis=1)
+            else:
+                data_dict[metric] = metric_data
+                
+        data_df = pd.DataFrame(data_dict)
+        
+        # Plot correlation matrix
+        plt.figure(figsize=(8, 6))
+        sns.heatmap(data_df.corr(), annot=True, cmap='coolwarm', center=0)
+        plt.title('Metric Correlations')
+        plt.savefig(self.save_dir / 'metric_correlations.png')
+        plt.close()
+    
+    def _plot_neuron_trajectories(self):
+        """
+        Plot the trajectory of each neuron's complexity over time.
+        Visualizes how neuron complexity evolves during training.
+        """
+        plt.figure(figsize=(10, 6))
+        
+        # Get complexity scores over time
+        entropies = np.array(self.metrics['weight_entropy'])
+        magnitudes = np.array(self.metrics['weight_magnitude'])
+        
+        # Calculate complexity scores for each neuron at each timepoint
+        n_timepoints, n_neurons = entropies.shape
+        complexity_scores = np.zeros((n_timepoints, n_neurons))
+            
+            # Calculate complexity scores for each neuron at each timepoint
+        n_timepoints, n_neurons = entropies.shape
+        complexity_scores = np.zeros((n_timepoints, n_neurons))
+        
+        for t in range(n_timepoints):
+            for n in range(n_neurons):
+                complexity_scores[t, n] = self._calculate_complexity_score(
+                    entropies[t, n], 
+                    magnitudes[t, n]
+                )
+            
+        # Calculate complexity for each timepoint and neuron
+        for t in range(n_timepoints):
+            for n in range(n_neurons):
+                complexity_scores[t, n] = self._calculate_complexity_score(
+                    entropies[t, n], 
+                    magnitudes[t, n]
+                )
+        
+        # Get epochs
+        epochs = np.array(self.metrics['epoch'])
+        
+        # Create colormap for neuron trajectories
+        colors = plt.cm.viridis(np.linspace(0, 1, n_neurons))
+        
+        # Plot each neuron's trajectory
+        for neuron_idx in range(n_neurons):
+            neuron_complexity = complexity_scores[:, neuron_idx]
+            
+            # Plot with arrows to show direction of change
+            plt.quiver(epochs[:-1], 
+                    neuron_complexity[:-1],
+                    epochs[1:] - epochs[:-1],
+                    neuron_complexity[1:] - neuron_complexity[:-1],
+                    color=colors[neuron_idx],
+                    angles='xy', 
+                    scale_units='xy', 
+                    scale=1,
+                    width=0.003,
+                    alpha=0.6)
+            
+            # Plot final position
+            plt.scatter(epochs[-1], 
+                    neuron_complexity[-1], 
+                    c=[colors[neuron_idx]], 
+                    marker='o',
+                    s=100,
+                    label=f'Neuron {neuron_idx}')
+            
+        plt.xlabel('Training Epoch')
+        plt.ylabel('Complexity Score')
+        plt.title('Neuron Complexity Trajectories')
+        plt.ylim(0, 1)  # Complexity score is normalized between 0 and 1
+        
+        # Add colorbar
+        sm = plt.cm.ScalarMappable(cmap=plt.cm.viridis, 
+                                norm=plt.Normalize(vmin=0, vmax=n_neurons-1))
+        sm.set_array([])
+        plt.colorbar(sm, label='Neuron Index')
+        
+        plt.grid(True, alpha=0.3)
+        plt.tight_layout()
+        plt.savefig(self.save_dir / 'neuron_trajectories.png')
+        plt.close()
+
+
+
+    def _calculate_complexity_score(self, entropy: float, magnitude: float) -> float:
+        """
+        Calculate a neuron's complexity score based on its weight entropy and magnitude.
+        
+        Args:
+            entropy: Weight distribution entropy
+            magnitude: Weight vector magnitude
+            
+        Returns:
+            float: Complexity score between 0 and 1
+        """
+        # Normalize both metrics to 0-1 range using recorded min/max values
+        max_entropy = max(self.metrics['weight_entropy'])
+        max_magnitude = max(self.metrics['weight_magnitude'])
+        
+        norm_entropy = entropy / max_entropy
+        norm_magnitude = magnitude / max_magnitude
+        
+        # Combine metrics with equal weighting
+        return (norm_entropy + norm_magnitude) / 2    
+    
+    def save_metrics(self):
+        """Save all metrics to CSV files."""
+        df = pd.DataFrame({
+            'epoch': self.metrics['epoch'],
+            'complexity': self.metrics['complexity']
+        })
+        
+        # Add metrics that are scalar per epoch
+        for metric in ['angular_distances']:
+            df[metric] = self.metrics[metric]
+            
+        # Add metrics that are per-neuron
+        for metric in ['weight_entropy', 'weight_magnitude', 'semanticity_scores']:
+            metric_data = np.array(self.metrics[metric])
+            for neuron_idx in range(metric_data.shape[1]):
+                df[f'{metric}_neuron_{neuron_idx}'] = metric_data[:, neuron_idx]
+                
+        # Add feature importance scores
+        importance_df = pd.DataFrame(self.metrics['feature_importance'])
+        df = pd.concat([df, importance_df], axis=1)
+        
+        df.to_csv(self.save_dir / 'curriculum_metrics.csv', index=False)
+        
+    def load_metrics(self, path: str):
+        """Load previously saved metrics."""
+        df = pd.read_csv(Path(path) / 'curriculum_metrics.csv')
+        
+        # Reconstruct metrics dictionary
+        self.metrics['epoch'] = df['epoch'].tolist()
+        self.metrics['complexity'] = df['complexity'].tolist()
+        self.metrics['angular_distances'] = df['angular_distances'].tolist()
+        
+        # Reconstruct per-neuron metrics
+        n_neurons = len([col for col in df.columns if 'weight_entropy_neuron_' in col])
+        
+        for metric in ['weight_entropy', 'weight_magnitude', 'semanticity_scores']:
+            metric_data = []
+            for i in range(len(df)):
+                neuron_values = [df[f'{metric}_neuron_{j}'][i] for j in range(n_neurons)]
+                metric_data.append(neuron_values)
+            self.metrics[metric] = metric_data
+            
+        # Reconstruct feature importance
+        self.metrics['feature_importance'] = df[['color', 'texture', 'orientation']].to_dict('records')
